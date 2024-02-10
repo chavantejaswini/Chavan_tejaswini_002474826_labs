@@ -87,14 +87,13 @@ public class CreateAccountJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 233, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(338, 338, 338))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(157, 157, 157)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(241, 241, 241)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -111,7 +110,7 @@ public class CreateAccountJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(349, 349, 349)
                         .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(281, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,11 +154,20 @@ public class CreateAccountJPanel extends javax.swing.JPanel {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
+         
+
         String routingNumber = txtRoutingNumber.getText();
         String accountNumber = txtAccountNumber.getText();
         String bankName = txtBankName.getText();
         int balance = Integer.parseInt(txtBalance.getText());
         
+        if(accountNumber.isEmpty() || bankName.isEmpty() || routingNumber.isEmpty()) 
+                {
+                     System.out.println("Fields are missing details");
+                     JOptionPane.showMessageDialog(null,"Please enter all the bank details","Warning",JOptionPane.WARNING_MESSAGE);
+                     return;
+                }
+       
         Account account = accountDirectory.addAccount();
         account.setRoutingNumber(routingNumber);
         account.setAccountNumber(accountNumber);
@@ -168,6 +176,13 @@ public class CreateAccountJPanel extends javax.swing.JPanel {
         
         JOptionPane.showMessageDialog(null,"Account Successfully Created");
         
+        txtRoutingNumber.setText("");
+        txtAccountNumber.setText("");
+        txtBankName.setText("");
+        txtBalance.setText("");
+        
+                
+
     }//GEN-LAST:event_btnCreateActionPerformed
 
 

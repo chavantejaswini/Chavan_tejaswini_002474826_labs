@@ -133,12 +133,12 @@ public class ManageAccountJPanel extends javax.swing.JPanel {
                 .addGap(75, 75, 75)
                 .addComponent(txtAccountNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 691, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47))
+                .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,7 +164,7 @@ public class ManageAccountJPanel extends javax.swing.JPanel {
         Account result = accountDirectory.searchAccount(txtAccountNumber.getText());
         if(result == null)
         {
-            JOptionPane.showConfirmDialog(null,"Account number you entered does not exist","Information",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showConfirmDialog(null,"Please enter the account number in order to search","Information",JOptionPane.INFORMATION_MESSAGE);
         }
         else
         {
